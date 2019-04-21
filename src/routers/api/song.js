@@ -1,13 +1,19 @@
 const express = require('express')
+const Song = require('../../models/song')
 const router = new express.Router()
 
 router.post('/', async (req, res) => {
     console.log('SONG POST')
 
+    console.log(req.body)
+
+    const song = new Song({
+        ...req.body
+    })
+
     try {
-        res.status(200).send({
-            success: true
-        })
+        await song.save()
+        res.status(200).send(song)
     } catch(e) {
         res.status(400).send(e)
     }

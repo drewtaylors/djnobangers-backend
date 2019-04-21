@@ -10,7 +10,7 @@ const port = process.env.PORT | 3000
 // const viewsPath = path.join(__dirname, '../views')
 // app.set('views', viewsPath)
 
-app.use('/api', express.json())
+app.use(express.json())
 
 // app.get('/', (req, res) => {
 //     res.render('index')
